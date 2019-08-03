@@ -1,7 +1,16 @@
-<%= form_tag("/search", method: "post") do |f| %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
-  <%= f.select(:gender, search_type, {}, { :class => 'select' }) %>
-
+<%= form_tag(root_path, method: "get") do %>
+  <%= label_tag(:query, "Search: ") %>
+  <%= text_field_tag(:query) %>
+  <%= select_tag :search_type, options_for_select(SEARCH_TYPE) %>
   <%= submit_tag("Search") %>
 <% end %>
+
+<ul>
+	<% if @repos.present? %>
+		<% @repos.each do |repo| %>
+			<%= link_to repo.url do %>
+				<%= repo.full_name %>
+			<% end %>
+		<% end %>
+	<% end %>
+</ul>

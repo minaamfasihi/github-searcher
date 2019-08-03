@@ -1,3 +1,2 @@
 module ApplicationHelper
-	include GithubInterfaceHelper
 end

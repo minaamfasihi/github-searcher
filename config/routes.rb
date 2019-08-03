@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
 	root to: 'github_interface#index'
-	post '/search', to: 'github_interface#search'
+	get '/show_repos', to: 'github_interface#show_repos'
 end

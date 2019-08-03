@@ -23,8 +23,9 @@ module GithubSearcher
     config.load_defaults 5.2
 
     Github.configure do |c|
-		c.basic_auth = "#{ENV['LOGIN']}:#{ENV['PASSWORD']}"
-	end
+      c.basic_auth = "#{ENV['LOGIN']}:#{ENV['PASSWORD']}"
+    end
+    config_file_path = "#{Rails.root}/config/constant.rb"
 	# github = Github.new basic_auth: 'minaam.fasihi@gmail.com:opensourcerz123'
 	# github.auth.app.create 'Iv1.43f97d3b140c5a8f', scopes: ['repo']
     # Settings in config/environments/* take precedence over those specified here.
