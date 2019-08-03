@@ -1,0 +1,7 @@
+<%= form_tag("/search", method: "post") do |f| %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= f.select(:gender, search_type, {}, { :class => 'select' }) %>
+
+  <%= submit_tag("Search") %>
+<% end %>
