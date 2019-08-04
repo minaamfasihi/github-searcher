@@ -2,12 +2,16 @@ class GithubInterfaceController < ApplicationController
 	before_action :validate_search_query, only: [:index]
 
 	def index
-		if @search_type == 'repo'
-			@curr_page = Github.search.repos @query, per_page: PER_PAGE, page: @target_page_num
-			@repo_items = @curr_page.items
-		elsif @search_type == 'user'
-			@repo_items = Github.repos.list user: @query, per_page: PER_PAGE, page: @target_page_num
-			@curr_page = @repo_items
+		begin
+			if @search_type == 'repo'
+				@curr_page = Github.search.repos @query, per_page: PER_PAGE, page: @target_page_num
+				@repo_items = @curr_page.items
+			elsif @search_type == 'user'
+				@repo_items = Github.repos.list user: @query, per_page: PER_PAGE, page: @target_page_num
+				@curr_page = @repo_items
+			end
+		rescue StandardError => e
+			return redirect_to root_path
 		end
 	end
 
