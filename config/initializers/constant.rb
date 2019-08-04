@@ -1,2 +1,2 @@
-SEARCH_TYPE = ['User', 'Repo']
+SEARCH_TYPE = ['Repo', 'User']
 PER_PAGE = 10
