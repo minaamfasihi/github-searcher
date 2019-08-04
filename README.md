@@ -5,6 +5,8 @@ This is a web app that searches for github repos based on repo names or by user 
 All the application code involving Github API is in `app/controllers/github_interface_controller.rb`.
 Pagination is done natively by the used gem, however some logic was involved when it came to rendering it on the page which could be seen in `app/views/github_interface/index.html.erb` and the helper `app/helpers/application_helper.rb`.
 
+There is no database since we don't need to persist anything and so no need of running migrations.
+
 Bootstrap is used for some styling.
 
 # Tests
