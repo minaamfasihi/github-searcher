@@ -2,22 +2,13 @@ class GithubInterfaceController < ApplicationController
 	before_action :validate_query, only: [:index]
 
 	def index
-		@repos = params[:repos]
 		if @search_type == 'repo'
-			github = Github.search.repos @query
-			# github.search.repos 'query'
-			# github.search.repos q: 'query'
-			@repos = github.items
-			puts @repos
+			@curr_page = Github.search.repos @query, per_page: PER_PAGE, page: @target_page_num
+			@repo_items = @curr_page.items
 		elsif @search_type == 'user'
-			@repos = Github.repos.list user: @query
-			puts @repos
+			@repo_items = Github.repos.list user: @query, per_page: PER_PAGE, page: @target_page_num
+			@curr_page = @repo_items
 		end
-		puts params if params.present?
-	end
-
-	def show_repos
-		
 	end
 
 	private
@@ -27,5 +18,6 @@ class GithubInterfaceController < ApplicationController
 
 		@query = params['query'].to_s.downcase
 		@search_type = params['search_type'].to_s.downcase
+		@target_page_num = params[:target_page_num]
 	end
 end

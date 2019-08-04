@@ -19,8 +19,8 @@
 	<div class="col-4"></div>
 	<div class="col-4">
 		<ul class="list-group">
-			<% if @repos.present? %>
-				<% @repos.each do |repo| %>
+			<% if @repo_items.present? %>
+				<% @repo_items.each do |repo| %>
 					<li class="list-group-item">
 						<%= link_to repo.html_url, target: '_blank' do %>
 							<%= repo.full_name %>
@@ -30,5 +30,8 @@
 			<% end %>
 		</ul>
 	</div>
-	<div class="col-4"></div>	
+	<div class="col-4">
+		<%= link_to "Next", root_path(target_page_num: next_page_num(@curr_page), query: @query, search_type: @search_type) %>
+		<%= link_to "Prev", root_path(target_page_num: prev_page_num(@curr_page), query: @query, search_type: @search_type) %>
+	</div>
 </div>
