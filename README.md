@@ -1,24 +1,19 @@
-# README
+# Github Searcher
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a web app that searches for github repos based on repo names or by user name (option is given as a select tag). It uses `http://piotrmurach.github.io/github/` for Github API calls.
 
-Things you may want to cover:
+All the application code involving Github API is in `app/controllers/github_interface_controller.rb`.
+Pagination is done natively by the used gem, however some logic was involved when it came to rendering it on the page which could be seen in `app/views/github_interface/index.html.erb` and the helper `app/helpers/application_helper.rb`.
 
-* Ruby version
+Bootstrap is used for some styling.
 
-* System dependencies
+# Tests
+Tests can be run from the root application directory by running: 
+`rspec`
 
-* Configuration
+# Test Coverage:
+Test coverage is done using `simplecov`. The output of `simplecov` is an HTML file named `index.html` that goes inside `coverage` folder.
 
-* Database creation
+Currently, the coverage is `85.71%`.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Testing could further be expanded to cover more cases.
