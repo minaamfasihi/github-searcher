@@ -3,9 +3,9 @@
 This is a web app that searches for github repos based on repo names or by user name (option is given as a select tag). It uses `http://piotrmurach.github.io/github/` for Github API calls.
 
 # Running the app:
-You need to have an `.env` file in the root directory with the following two fields: 
-`LOGIN="<your-github-login>"
-PASSWORD="<your-password>"`
+You need to have an `.env` file in the root directory with the following two fields:  
+`LOGIN="<your-github-login>"  
+PASSWORD="<your-password>"`  
 
 These fields are being used in the `config/application.rb` file.
 We've defined constants such as `PER_PAGE` for pagination in a file called `config/initializers/constant.rb`.
