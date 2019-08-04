@@ -4,7 +4,7 @@ This is a web app that searches for github repos based on repo names or by user 
 
 # Running the app:
 You need to have an `.env` file in the root directory with the following two fields:  
-`LOGIN="<your-github-login>"  
+`LOGIN="<your-github-login>"<br />
 PASSWORD="<your-password>"`  
 
 These fields are being used in the `config/application.rb` file.
