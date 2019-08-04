@@ -4,8 +4,8 @@ This is a web app that searches for github repos based on repo names or by user 
 
 # Running the app:
 You need to have an `.env` file in the root directory with the following two fields:  
-`LOGIN="<your-github-login>"<br />
-PASSWORD="<your-password>"`  
+`LOGIN="<your-github-login>"`  
+`PASSWORD="<your-password>"`  
 
 These fields are being used in the `config/application.rb` file.
 We've defined constants such as `PER_PAGE` for pagination in a file called `config/initializers/constant.rb`.
